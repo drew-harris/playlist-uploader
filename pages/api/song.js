@@ -12,15 +12,6 @@ export default async function handler(req, res) {
       );
 
       console.log(kanoResponse.data.data);
-      try {
-        const stemifyResponse = await axios.post(
-          "https://stemify2.net/api/tickets/automatic",
-          {
-            url: req.body.url,
-          }
-        );
-        console.log(stemifyResponse?.data);
-      } catch (error) {}
 
       if (kanoResponse.data.data.status == "ready") {
         res.json({
